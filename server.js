@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 mongoose.set("useFindAndModify", false);
+var cors = require("cors");
 
 const app = express();
 mongoose
@@ -17,6 +18,7 @@ mongoose
   .then(console.log("mongo connect"));
 mongoose.Promise = global.Promise;
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // const words = [];
