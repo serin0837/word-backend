@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // const words = [];
 
 // no cors // local host
-app.options("/word", (req, res) => {
+app.options("/api/words", (req, res) => {
   res.setHeader("accept", "application/json");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-allow-methods", "*");
