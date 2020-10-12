@@ -16,12 +16,21 @@ router.post("/words", function (req, res) {
     res.send(word);
   });
 });
-
+//delete word by id //working
 router.delete("/words/:id", function (req, res) {
   Word.findByIdAndRemove({ _id: req.params.id }).then(function (word) {
     res.send(word);
   });
 });
+//update word by id//
+router.put("/words/:id", function (req, res, next) {
+  Word.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true }).then(
+    function (word) {
+      res.send(word);
+    }
+  );
+});
+
 
 //get every word
 // app.get("/word", (req, res) => {
