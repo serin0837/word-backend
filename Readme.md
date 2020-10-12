@@ -1,3 +1,3 @@
 # Description
 
-This is back end
+This is back end made with Express and MongoDB

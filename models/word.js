@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const WordSchema = new Schema({
+  language:{
+    type:String,
+  },
   name: {
     type: String,
   },
