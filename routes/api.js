@@ -22,7 +22,7 @@ router.delete("/words/:id", function (req, res) {
     res.send(word);
   });
 });
-//update word by id//
+//update word by id//working
 router.put("/words/:id", function (req, res, next) {
   Word.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true }).then(
     function (word) {

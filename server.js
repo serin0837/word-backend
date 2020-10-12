@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors")
 const mongoose = require("mongoose");
 mongoose.set("useFindAndModify", false);
 
@@ -17,18 +18,18 @@ mongoose
   .then(console.log("mongo connect"));
 mongoose.Promise = global.Promise;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+app.use(express.json());
 // const words = [];
 
 // no cors // local host
-app.options("/api/words", (req, res) => {
-  res.setHeader("accept", "application/json");
-  res.setHeader("access-control-allow-origin", "*");
-  res.setHeader("access-control-allow-methods", "*");
-  res.setHeader("access-control-allow-headers", "*");
-  res.status(200).end();
-});
+// app.options("/api/words", (req, res) => {
+//   res.setHeader("accept", "application/json");
+//   res.setHeader("access-control-allow-origin", "*");
+//   res.setHeader("access-control-allow-methods", "*");
+//   res.setHeader("access-control-allow-headers", "*");
+//   res.status(200).end();
+// });
 
 app.use("/api", require("./routes/api"));
 
