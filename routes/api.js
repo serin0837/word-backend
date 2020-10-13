@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const Word = require("../models/word");
+const Language = require("../models/language")
 
-//get every country
+//get every words
 router.get("/words", function (req, res) {
   Word.find({}).then(function (word) {
     res.send(word);
   });
 });
 
-// add a country to db -> working!!!!
+// add a word to db -> working!!!!
 router.post("/words", function (req, res) {
   //new instance of County object
   Word.create(req.body).then(function (word) {
@@ -29,6 +30,27 @@ router.put("/words/:id", function (req, res, next) {
       res.send(word);
     }
   );
+});
+
+//get every language
+router.get("/languages", function (req, res) {
+  Language.find({}).then(function (language) {
+    res.send(language);
+  });
+});
+
+// add a language to db -> working!!!!
+router.post("/languages", function (req, res) {
+  //new instance of County object
+  Language.create(req.body).then(function (language) {
+    res.send(language);
+  });
+});
+//delete a language to db
+router.delete("/languages/:id", function (req, res) {
+  Language.findByIdAndRemove({ _id: req.params.id }).then(function (language) {
+    res.send(language);
+  });
 });
 
 
