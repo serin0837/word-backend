@@ -44,7 +44,7 @@ router.post("/languages", function (req, res) {
   //new instance of County object
   Language.create(req.body).then(function (language) {
     res.send(language);
-  });
+  }).catch((err)=>console.log(err));
 });
 //delete a language to db
 router.delete("/languages/:id", function (req, res) {
