@@ -9,6 +9,12 @@ router.get("/words", function (req, res) {
     res.send(word);
   });
 });
+//get word with user id
+router.get("/words/userId/:userId",function(req,res){
+  Word.find({userId:req.params.userId}).then(function (word) {
+    res.send(word);
+  });
+})
 
 // add a word to db -> working!!!!
 router.post("/words", function (req, res) {
